@@ -112,6 +112,7 @@ public class JobApiController {
     @ResponseBody
     @PermessionLimit(limit=false)
     public ReturnT<String> registry(@RequestBody RegistryParam registryParam){
+        logger.info("Get New Registry ：" + registryParam.toString());
         int ret = xxlJobRegistryDao.registryUpdate(registryParam.getRegistGroup(), registryParam.getRegistryKey(), registryParam.getRegistryValue());
         if (ret < 1) {
             xxlJobRegistryDao.registrySave(registryParam.getRegistGroup(), registryParam.getRegistryKey(), registryParam.getRegistryValue());

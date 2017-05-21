@@ -150,5 +150,21 @@
 		</dependency>
 
 	</dependencies>
-
+	<build>
+		<finalName>xxl-job-admin</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<!-- 这里是本地tomcat，如果是远程服务器可以改成对应的地址，实现自动部署-->
+					<url>http://localhost:8080/manager/text</url>
+					<path>/${project.build.finalName}</path>
+                    <username>localMaven</username>
+					<password>localMavenPsw</password>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
